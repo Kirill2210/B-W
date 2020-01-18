@@ -1,5 +1,4 @@
-@import '_vars';
-@import '_global';
+@import 'global';
 
 .header {
 	background-color: #fefefe;
@@ -9,6 +8,7 @@
 	padding: 0 30px;
 	justify-content: space-between;
 	align-items: center;
+	position: relative;
 }
 .nav {
 	ul {
@@ -59,6 +59,19 @@
 	font-size: 16px;
 	color: #898888;
 	font-style: italic;
+}
+.burger__items {
+	cursor: pointer;
+	position: absolute;
+	right: 15px;
+	top: 15px;
+	display: none;
+	.burger__item {
+		width: 30px;
+		height: 5px;
+		background-color: #000;
+		margin-bottom: 5px;
+	}
 }
 .about {
 	background-color: #1d1d1d;
@@ -215,10 +228,10 @@
 }
 .services {
 	background-color: #181818;
-	background-image: url(../images/services-bg.png);
+	/* background-image: url(../images/services-bg.png);
 	background-position: center 300%;
 	background-size: contain;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat; */
 	padding-top: 235px;
 	padding-bottom: 295px;
 	position: relative;
@@ -242,6 +255,7 @@
 	max-width: 430px;
 	width: 100%;
 	margin: 0 auto 205px;
+	text-align: center;
 	.services__top-title {
 		color: #fff;
 		font-size: 34px;
@@ -300,5 +314,199 @@
 		width: 100%;
 		text-transform: uppercase;
 		text-align: center;
+	}
+}
+.contact {
+	padding-top: 90px;
+	padding-bottom: 50px;
+	.contact__wrapper {
+		max-width: 830px;
+		width: 100%;
+		padding: 0 30px;
+		margin: 0 auto;
+	}
+}
+.contact__top {
+	max-width: 230px;
+	margin: 0 auto 60px;
+	text-align: center;
+	.contact__top-title {
+		color: #1d1e1f;
+		font-size: 34px;
+	}
+	.contact__top-subtitle {
+		font-size: 16px;
+		color: #898888;
+		font-style: italic;
+	}
+}
+.contact__data {
+	max-width: 600px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 auto 150px;
+	.contact__data-item {
+		max-width: 150px;
+		width: 100%;
+		text-align: center;
+		padding-top: 30px;
+		font-size: 12px;
+		color: #898888;
+		position: relative;
+		img {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		&.contact__mail img {
+			top: 4px;
+		}
+	}
+}
+.contact__form {
+	margin-bottom: 150px;
+	form {
+		input, textarea {
+			display: block;
+			width: 100%;
+			padding: 20px;
+			border: 1px solid #999;
+			margin-bottom: 20px;
+			&::placeholder {
+				font-size: 15px;
+				color: #898888;
+				text-align: center;
+			}
+		}
+		textarea {
+			resize: none;
+		}
+		button {
+			display: block;
+			width: 100%;
+			padding: 20px;
+			border: none;
+			background-color: #161616;
+			color: #fefefe;
+			text-align: center;
+			cursor: pointer;
+		}
+	}
+}
+.contact__copy {
+	text-align: center;
+	font-size: 14px;
+	color: #3b3b3b;
+}
+
+
+@media (max-width: 975px) {
+	.about {
+		padding-bottom: 140px;
+		&::before {
+			display: none;
+		}
+	}
+	.about__item:nth-child(odd)::before, .about__item:nth-child(even)::before {
+		display: none;
+	}
+	.about__items {
+		margin: 100px auto 40px;
+		.about__item {
+			&:nth-child(odd), &:nth-child(even) {
+				align-self: center;
+				text-align: center;
+				margin-bottom: 40px;
+			}
+		}
+	}
+	.services {
+		&:before, &:after {
+			height: 150px;
+		}
+	}
+	.services__items  {
+		margin-bottom: 250px;
+		flex-direction: column;
+		.services__item {
+			margin-bottom: 30px;
+		}
+	}
+}
+@media (max-width: 720px) {
+	.team__human {
+		flex-direction: column;
+		align-items: center;
+		.team__item {
+			margin-bottom: 30px;
+			&.team__item {
+				margin-top: 0;
+			}
+		}
+	}
+}
+@media (max-width: 650px) {
+	.header__top {
+		flex-direction: column;
+		.nav {
+			display: none;
+			width: 100%;
+			ul {
+				flex-direction: column;
+				li {
+					padding: 5px;
+					& + li {
+						margin: 0;
+					}
+					a {
+						font-size: 17px;
+					}
+				}
+			}
+		}
+	}
+	.header__logo {
+		order: -1;
+		margin-left: 0;
+		margin-right: 0;
+		margin-bottom: 10px;
+	}
+	.burger__items {
+		display: block;
+	}
+	.contact__data {
+		flex-direction: column;
+		margin: 0 auto 70px;
+		.contact__data-item {
+			margin-bottom: 30px;
+		}
+	}
+}
+@media (max-width: 515px) {
+	.header__title {
+		font-size: 36px;
+	}
+	.header__subtitle {
+		font-size: 14px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 650px) {
+	.nav {
+		display: block !important;
 	}
 }
